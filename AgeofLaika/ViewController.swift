@@ -25,7 +25,16 @@ class ViewController: UIViewController {
     @IBAction func converttoDogYearsButtonPressed(sender: UIButton) {
         convertedYearsLabel.hidden = false
         enterHumanYearsTextField.resignFirstResponder()
-        let convertedYearsDouble = Double((enterHumanYearsTextField.text as NSString).doubleValue) * 7
+        let HumanYearsDouble = Double((enterHumanYearsTextField.text as NSString).doubleValue)
+        var convertedYearsDouble:Double
+        if HumanYearsDouble <= 2
+        {
+            convertedYearsDouble = HumanYearsDouble * 10.5
+        }
+        else
+        {
+            convertedYearsDouble = 2 * 10.5 + (HumanYearsDouble - 2) * 4
+        }
         convertedYearsLabel.text = "\(enterHumanYearsTextField.text) human years equals \(convertedYearsDouble) dog years"
         convertedYearsLabel.textColor = UIColor.blueColor()
         
